@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+<h2>Fly into a tail spin</h2>
+<form action="/flights" method="POST">
+  <label>Airline:
+    <select name="airline">
+        <option value="American">American</option>
+        <option value="Alaska">Alaska</option>
+        <option value="Delta">Delta</option>
+        <option value="Southwest">Southwest</option>
+        <option value="United">United</option>
+    </select>
+  </label><br>
+  <label>Airport:
+    <select name="airport">
+        <option name="PDX">PDX</option>
+        <option name="LAX">LAX</option>
+        <option name="ORD">ORD</option>
+        <option name="GRU">GRU</option>
+        <option name="PAP">PAP</option>
+    </select>
+  </label><br>
+  <label>Flight Number:
+    <input type="number" name="flightNo" placeholder="1234">
+  </label><br>
+  <label>Departs:
+    <input type="datetime-local" name="departs">
+  </label><br>
+  <button type="submit">Add Flight</button>
+</form>
+<p><%= errorMsg %></p>
+
+<%- include('../partials/footer') %>
