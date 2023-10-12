@@ -1,0 +1,16 @@
+<form action="/flights/<%= flight._id %>/tickets" method="POST">
+    <label>Seat:</label>
+    <input type="text" name="seat" required pattern="[A-F][1-9]\d?"><br>
+    <label for="currency-field">Price:</label>
+    <input type="text" name="currency-field" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="$0.00"><br>
+    <label>Airport:
+        <select name="airport">
+            <option name="PDX">PDX</option>
+            <option name="LAX">LAX</option>
+            <option name="ORD">ORD</option>
+            <option name="GRU">GRU</option>
+            <option name="PAP">PAP</option>
+        </select>
+      </label><br>
+      <button type="submit">Add Ticket</button>
+</form>
