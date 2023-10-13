@@ -38,6 +38,8 @@ function index(req, res) {
 
 async function show(req, res) {
     const flight = await Flight.findById(req.params.id);
-    const tickets = await Ticket.find({ flight:flight._id });
-    res.render('flights/show', { title: 'Flight Destination', flight, tickets });
+    const tickets = await Ticket.find({ flight: flight._id });
+    const now = new Date;
+    const formattedDate = now.toISOString().slice(0,16);
+    res.render('flights/show', { title: 'Flight Details', flight, tickets, formattedDate });
 }

@@ -22,12 +22,12 @@ async function create(req, res) {
     const ticketInfo = req.body;
     const flightId = req.params.id;
     console.log('before', ticketInfo);
-    ticketInfo.flight = flilghtId;
+    ticketInfo.flight = flightId;
     console.log('after', ticketInfo);
-    req.body.flight = req.params.id;
     try {
-        await Ticket.create(ticketInfo)
-        res.redirect(`/flights/${flightId}`)
+        const ticket = await Ticket.create(ticketInfo);
+        console.log(ticket);
+        res.redirect(`/flights/${flightId}`);
     } catch(err) {
         console.log(err);
     }

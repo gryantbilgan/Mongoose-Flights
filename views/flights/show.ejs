@@ -15,7 +15,7 @@
 <form id="add-destinations-form" method="POST"
   action="/flights/<%= flight._id %>/destinations">
   <label>Arrives:</label>
-  <input type="datetime-local" name="arrival">
+  <input type="datetime-local" name="arrival" value="<%= `${formattedDate}` %>">
   <label>Airport:</label>
   <select name="airport">
     <option value="PDX"><selected>PDX</option>
@@ -31,8 +31,8 @@
     <table>
       <thead>
         <tr>
-          <th>Arrives</th>
-          <th>Airport</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -49,7 +49,28 @@
     <h5>No Destinations Yet</h5>
   <% } %>
 
+  <% if (tickets.length) { %>
+    <table>
+      <thead>
+        <tr>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <% tickets.forEach(function(t) { %>
+          <tr>
+            <td>Seat:<%= t.seat %></td>
+            <td>Price: $<%= t.price %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Tickets Yet</h5>
+  <% } %>
+
   <a href="/flights/<%= flight._id %>/tickets/new">Add Ticket</a>
+
 
   
 <%- include('../partials/footer') %>
